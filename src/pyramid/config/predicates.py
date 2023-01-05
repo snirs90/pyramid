@@ -8,7 +8,7 @@ from pyramid.registry import predvalseq
 from pyramid.util import TopologicalSorter, bytes_, is_nonstr_iter
 
 MAX_ORDER = 1 << 30
-DEFAULT_PHASH = BLAKE2b().hexdigest()
+DEFAULT_PHASH = blake2b().hexdigest()
 
 
 class PredicateConfiguratorMixin:
