@@ -690,7 +690,7 @@ class AuthTicket:
         time=None,
         cookie_name='auth_tkt',
         secure=False,
-        hashalg='md5',
+        hashalg='sha512',
     ):
         self.secret = secret
         self.userid = userid
@@ -738,7 +738,7 @@ class BadTicket(Exception):
 
 
 # this function licensed under the MIT license (stolen from Paste)
-def parse_ticket(secret, ticket, ip, hashalg='md5'):
+def parse_ticket(secret, ticket, ip, hashalg='sha512'):
     """
     Parse the ticket, returning (timestamp, userid, tokens, user_data).
 
@@ -782,7 +782,7 @@ def parse_ticket(secret, ticket, ip, hashalg='md5'):
 
 # this function licensed under the MIT license (stolen from Paste)
 def calculate_digest(
-    ip, timestamp, secret, userid, tokens, user_data, hashalg='md5'
+    ip, timestamp, secret, userid, tokens, user_data, hashalg='sha512'
 ):
     secret = bytes_(secret, 'utf-8')
     userid = bytes_(userid, 'utf-8')
