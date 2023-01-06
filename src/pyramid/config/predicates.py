@@ -137,7 +137,7 @@ class PredicateList:
         # phash) that can be used by a caller to identify identical predicate
         # lists.
         ordered = self.sorter.sorted()
-        phash = BLAKE2b()
+        phash = blake2b()
         weights = []
         preds = []
         info = PredicateInfo(
